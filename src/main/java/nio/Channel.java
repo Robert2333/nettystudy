@@ -6,6 +6,7 @@ import java.nio.channels.FileChannel;
 
 public class Channel {
     public static void main(String[] args) throws IOException {
+        //任意读取文件流，一种比较方便的读取文件的方式
         RandomAccessFile randomAccessFile=new RandomAccessFile("D:\\netty-study\\src\\main\\resources\\static\\channelTxt.txt","rw");
         FileChannel inChannel=randomAccessFile.getChannel();
         ByteBuffer buf = ByteBuffer.allocate(4);

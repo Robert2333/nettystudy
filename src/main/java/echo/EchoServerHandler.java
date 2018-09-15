@@ -19,7 +19,8 @@ public class EchoServerHandler extends ChannelInboundHandlerAdapter {
 
     @Override
     public void channelReadComplete(ChannelHandlerContext ctx) throws Exception {
-        ctx.writeAndFlush(Unpooled.EMPTY_BUFFER)//4
+        ctx.writeAndFlush(Unpooled.copiedBuffer("第二次输出", //2
+                CharsetUtil.UTF_8))//4
                 .addListener(ChannelFutureListener.CLOSE);
     }
 

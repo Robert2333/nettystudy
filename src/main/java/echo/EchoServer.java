@@ -24,11 +24,12 @@ public class EchoServer {
         NioEventLoopGroup group = new NioEventLoopGroup();
         try {
             ServerBootstrap serverBootstrap = new ServerBootstrap();
+            //out必须在前面
             serverBootstrap.group(group).channel(NioServerSocketChannel.class).localAddress(new InetSocketAddress(port)).childHandler(new ChannelInitializer<SocketChannel>() { //7
                 @Override
                 public void initChannel(SocketChannel ch)
                         throws Exception {
-                    ch.pipeline().addLast(
+                    ch.pipeline().addLast(new EchoServerOutHandler()).addLast(
                             new EchoServerHandler());
                 }
             });

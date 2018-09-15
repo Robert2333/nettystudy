@@ -29,6 +29,7 @@ public class Channel {
         RandomAccessFile randomAccessFile=new RandomAccessFile("D:\\netty-study\\src\\main\\resources\\static\\channelTxt.txt","rw");
         FileChannel inChannel=randomAccessFile.getChannel();
         ByteBuffer buf = ByteBuffer.allocate(4);
+        //通道里的数据读到buffer中
         int bytesRead = inChannel.read(buf);
         while (bytesRead != -1) {
 

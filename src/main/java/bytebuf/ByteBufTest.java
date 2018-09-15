@@ -25,6 +25,7 @@ public class ByteBufTest {
 
     @Test
     public void 索引会变(){
+
         this.printByteBuf(0);
         int readIndex=testByteBuf.readerIndex();
         int writeIndex=testByteBuf.writerIndex();
